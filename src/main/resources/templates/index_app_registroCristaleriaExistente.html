@@ -43,22 +43,13 @@
 <body style="background-image: url(https://th.bing.com/th/id/OIP.XqXoj7lKuHP_6zfTPiOAawHaE6?rs=1&pid=ImgDetMain)" >
 
 	<!-- SIDEBAR -->
-	<section id="sidebar" th:replace="/fragments/navCristaleria">
-		
-	</section>
-	<!-- SIDEBAR -->
 
 
 
 	<!-- CONTENT -->
 	<section id="content">
 		<!-- NAVBAR -->
-		<nav  th:replace="/fragments/barraGeneral">
-			
-		</nav>
-		<!-- NAVBAR -->
-
-		<!-- MAIN -->
+		
 		<main>
                     <a class="boton" th:href="@{/usuario/panel-barra(id=__${session.usuariosession.id}__)}" type="submit"  >DASHBOARD</a>
 			<section class="form-register">
