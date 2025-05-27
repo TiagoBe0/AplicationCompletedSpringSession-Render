@@ -1,62 +1,98 @@
 <!DOCTYPE html>
 <html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-    <!-- Head -->
-    <body>
-        <!-- Navigation -->
-   
-        <section>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario - Rahip</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css"> <link rel="stylesheet" href="../css/registro.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+          <nav>
+            <a href="../index.html" class="brand"> <img src="../layaout-web/archivos/rahip-logo-blanco.svg" alt="Rahip" class="brand-icon">
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="toggle navigation" aria-expanded="false">
+              <span class="hamburger-icon"></span>
+              <span class="sr-only">Menú</span>
+            </button>
+            <ul class="nav-list" id="navList">
+              <li class="nav-item"><a href="../nosotros.html">NOSOTROS</a></li>
+              <li class="nav-item"><a href="../servicios.html">SERVICIOS</a></li>
+              <li class="nav-item"><a href="../brief.html">BRIEF</a></li>
+              <li class="nav-item"><a href="../calificanos.html">CALIFÍCANOS</a></li>
+              <li class="nav-item"><a href="../contacto.html">CONTACTO</a></li>
+              <li class="user">
+                <a href="loginUsuario1.html">
+                  <img src="../layaout-web/archivos/base-datos-icono.svg" alt="Usuario" class="user-icon">
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </header>
+
+        <main class="content d-flex align-items-center py-5">
             <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 order-lg-2">
-                        <div class="p-5">
-                            <img class="img-fluid rounded-circle" src="../statics/img/bartender.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="col-lg-6 order-lg-1">
-                        <div class="p-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 col-md-10">
+                        <div class="p-4 p-sm-5 shadow-lg rounded-3 bg-light"> <h2 class="display-5 text-center mb-4 fw-bold">Regístrate</h2>
                             
-                            <h2 class="display-4">Registrate</h2>
+                            <div th:if="${error != null}" class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <p th:text="${error}" class="mb-0"></p>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                             <div th:if="${exito != null}" class="alert alert-success alert-dismissible fade show" role="alert">
+                                <p th:text="${exito}" class="mb-0"></p>
+                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+
                             <form th:action="@{/registrar}" method="POST" enctype="multipart/form-data">
-
-
-                                <p th:if="${error != null}" th:text="${error}" style="color:red;"></p>
-
-                                <!-- <p th:if="${error != null}" th:text="${error}" style="color:red;"></p> -->
-
-                                <label>NombreASAS</label>
-                                <input type="text" class="form-control" name="nombre" th:value="${nombre}"/>
-                                <label>Apellido</label>
-                                <input type="text" class="form-control" name="apellido" th:value="${apellido}"/>
-                                    <label>Mail</label>
-                                    <input type="email" class="form-control" name="mail" th:value="${mail}"/>
-                                <label>Clave</label>
-                                <input type="password" class="form-control" name="clave1" th:value="${clave1}"/>
-                                <label>Verificar Clave</label>
-                                <input type="password" class="form-control" name="clave2" th:value="${clave2}"/>
-                                <label>Foto</label>
-                                <input type="file" class="form-control" name="archivo" />
-
-
-                                
-                                <br/><button   type="submit" class="btn btn-primary">Registrarme</button>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="nombre" class="form-label">Nombre</label>
+                                        <input type="text" class="form-control form-control-lg" id="nombre" name="nombre" th:value="${nombre}" placeholder="Tu nombre" required />
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="apellido" class="form-label">Apellido</label>
+                                        <input type="text" class="form-control form-control-lg" id="apellido" name="apellido" th:value="${apellido}" placeholder="Tu apellido" required />
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="mail" class="form-label">Correo Electrónico</label>
+                                    <input type="email" class="form-control form-control-lg" id="mail" name="mail" th:value="${mail}" placeholder="tu@email.com" required />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="clave1" class="form-label">Contraseña</label>
+                                    <input type="password" class="form-control form-control-lg" id="clave1" name="clave1" placeholder="Mínimo 6 caracteres" required />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="clave2" class="form-label">Verificar Contraseña</label>
+                                    <input type="password" class="form-control form-control-lg" id="clave2" name="clave2" placeholder="Repite la contraseña" required />
+                                </div>
+                                <div class="mb-4">
+                                    <label for="archivo" class="form-label">Foto de Perfil (opcional)</label>
+                                    <input type="file" class="form-control form-control-lg" id="archivo" name="archivo" />
+                                </div>
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-primary btn-lg">Registrarme</button>
+                                </div>
+                                 <div class="text-center mt-3">
+                                    <p>¿Ya tienes cuenta? <a th:href="@{/login}">Inicia Sesión</a></p>
+                                </div>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </main>
 
-
-        <!-- Footer -->
-        <footer class="py-5 bg-black">
-            <div class="container">
-                <p class="m-0 text-center text-white small">Copyright &copy; Your Website 2019</p>
+        <footer class="footer py-4 mt-auto">
+            <div class="container text-center">
+                <p class="m-0 text-white small">Copyright &copy; Rahip Estudio Creativo 2025</p>
             </div>
-            <!-- /.container -->
         </footer>
-
-        <!-- Bootstrap core JavaScript -->
-        <script th:replace="/fragments/boostjs :: script"></script>
-    </body>
-
+    </div><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <script src="../js/scripts.js"></script> 
+</body>
 </html>
