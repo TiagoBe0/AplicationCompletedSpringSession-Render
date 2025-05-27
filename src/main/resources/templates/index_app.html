@@ -231,7 +231,6 @@ background: linear-gradient(90deg, rgba(2,212,217,0.9500175070028011) 0%, rgba(9
 								<td >
                                                                     <a th:href="@{/usuario/modificar-barra-panel/__${cristaleria.barraPerteneciente.id}__}" ><i class='bx bx-plus' style="width: 50px"></i></a>
                                          
-									<img th:src="${'/foto/cristaleriafoto/' + cristaleria.id}">
 									<p th:text="${cristaleria.tipo}"></p>
 								</td>
 								<td th:text="${cristaleria.descripcion}" ></td>
@@ -281,10 +280,7 @@ background: linear-gradient(90deg, rgba(2,212,217,0.9500175070028011) 0%, rgba(9
 						<tbody>
 							<tr th:each="ruptura: ${rupturas}" th:if="${!ruptura.insumo}">
                                                
-								<td >
-									<img th:src="${'/foto/cristaleriafoto/' + ruptura.tipoCristaleria.id}">
-									
-								</td>
+								
                                                                 <td><h2 th:text="${ruptura.numeroDeRuptura}"></h2></td>
                                                                 <td th:text="${ruptura. explicacion}"></td>
                                         <td th:text="${ruptura.nombre}"></td>
