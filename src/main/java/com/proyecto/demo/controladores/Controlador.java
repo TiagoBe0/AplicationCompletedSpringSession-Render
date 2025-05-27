@@ -232,7 +232,11 @@ public class Controlador {
         
         return "loginUsuario1.html";
     }
-
+     @GetMapping("/loginUsuario")
+    public String palabrota() {
+        
+        return "loginUsuario1.html";
+    }
     @GetMapping("/registro")
     public String registro() {
         
