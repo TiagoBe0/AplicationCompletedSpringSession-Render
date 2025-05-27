@@ -88,7 +88,7 @@ public class CristaleriaServicio {
        
 
     }
-    
+      @Transactional
     public List<Cristaleria> listarCristaleriasPorIdUsuario(String idUsuario){
     
     
@@ -96,6 +96,7 @@ public class CristaleriaServicio {
    
     
     }
+      @Transactional
      public List<Cristaleria> listarInsumosPorIdUsuario(String idUsuario){
     
     
@@ -105,7 +106,7 @@ public class CristaleriaServicio {
     
     }
     
-    
+     @Transactional
     public List<Cristaleria> listarPorIdUsuario(String idUsuario){
     
     
@@ -342,7 +343,7 @@ public class CristaleriaServicio {
      
      }
     
-    
+       @Transactional 
     public Cristaleria buscarPorId(String id) throws ErrorServicio {
 
         Optional<Cristaleria> respuesta = cristaleriaRepositorio.findById(id);

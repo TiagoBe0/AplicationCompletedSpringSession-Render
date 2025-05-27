@@ -107,6 +107,7 @@ public class RupturaServicio {
     return costeMensual;
     
     }
+      @Transactional
    public List<Ruptura> listarTodasRupturas(String id) throws ErrorServicio{
    List<Ruptura> rupturas = usuarioServicio.buscarPorId(id).getTodasLasRupturas();
       
@@ -120,7 +121,7 @@ public class RupturaServicio {
     }
  
     
-    
+      @Transactional
     public List<Ruptura> todasLasRupturas(String idUsuario){
       List<Ruptura> rupturas=null;
         for (Ruptura ruptura : rupturaRepositorio.findAll()) {

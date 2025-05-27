@@ -41,12 +41,12 @@ public class CristalServicio {
         cristalRepositorio.save(cristal);
         
     }
-    
+        @Transactional
     public Cristal buscarPorId(String id){
     
     return cristalRepositorio.getById(id);
     }
-    
+      @Transactional
     public List<Cristal> listarTodas(){
     
     return cristalRepositorio.findAll();

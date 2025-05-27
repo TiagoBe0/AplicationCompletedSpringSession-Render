@@ -116,7 +116,7 @@ public class ProveedorServicio {
     }
     
     
-    
+      @Transactional
      public Proveedor buscarPorId(String id) throws ErrorServicio {
 
         Optional<Proveedor> respuesta = barraRepositorio.findById(id);

@@ -92,7 +92,7 @@ public class BarraServicio {
             
     
     }
-   
+     @Transactional
     public List<Barra> listarTodas(){
         return barraRepositorio.findAll();
     }
@@ -147,7 +147,7 @@ public class BarraServicio {
    barraRepositorio.deleteAll();
     }
        
-    
+      @Transactional
      public Barra buscarPorId(String id) throws ErrorServicio {
 
         Optional<Barra> respuesta = barraRepositorio.findById(id);

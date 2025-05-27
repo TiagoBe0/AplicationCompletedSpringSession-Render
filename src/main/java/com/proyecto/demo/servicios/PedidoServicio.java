@@ -162,7 +162,7 @@ public class PedidoServicio {
             
     
     }
-   
+     @Transactional
     public List<Pedido> listarTodas(){
         return barraRepositorio.findAll();
     }
@@ -194,7 +194,7 @@ public class PedidoServicio {
     }
     
     
-    
+      @Transactional
      public Pedido buscarPorId(String id) throws ErrorServicio {
 
         Optional<Pedido> respuesta = barraRepositorio.findById(id);

@@ -63,7 +63,7 @@ public class FotoServicio {
         
     }
     
-    
+    @Transactional
     public Foto buscarPorId(String id) throws ErrorServicio {
 
         Optional<Foto> respuesta = fotoRepositorio.findById(id);
