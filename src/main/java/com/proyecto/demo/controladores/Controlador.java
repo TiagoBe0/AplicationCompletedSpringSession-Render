@@ -232,6 +232,11 @@ public class Controlador {
         
         return "loginUsuario1.html";
     }
+       @GetMapping("/tablaUsuarios")
+    public String tablaUsuarios(ModelMap modelo) {
+            modelo.put("usuarios",usuarioServicio.todosLosUsuarios());
+        return "inicio.html";
+    }
      @GetMapping("/loginUsuario")
     public String palabrota() {
         
